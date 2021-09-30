@@ -35,13 +35,13 @@ def transform(text_file_contents):
 
 def transform_view():
     if request.method == 'POST':
-        city_name = request.form.get("cityname")
+        city = request.form.get("city")
         
        
         link2="forecasts/latest"
         link1="https://www.weather-forecast.com/locations/"
         
-        page = requests.get(f'{link1}{city_name}/{link2}')
+        page = requests.get(f'{link1}{city}/{link2}')
         soup=BeautifulSoup(page.content,"lxml")
         
         d={}
